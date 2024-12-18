@@ -12,7 +12,7 @@ st.set_page_config(
 st.sidebar.subheader("Ajustes de Cálculo")
 with st.sidebar:
     st.write("Ajusta los porcentajes utilizados en los cálculos:")
-    st.help("Estos porcentajes afectan el resultado final. Ajusta con cuidado.")
+    #st.help("Estos porcentajes afectan el resultado final. Ajusta con cuidado.")
     porcentaje_prestaciones = st.slider(
         "Porcentaje Prestaciones Sociales", 0.0, 0.5, 0.35, 0.01,
         help="Incluye prima, cesantías y vacaciones. Generalmente alrededor del 35%."
@@ -22,7 +22,7 @@ with st.sidebar:
         help="Porcentaje del 40% de la tarifa destinado a salud."
     )
     porcentaje_pension = st.slider(
-        "Porcentaje Pensión (sobre base cotización)", 0.0, 0.2, 0.16, 0.005,
+        "Porcentaje Pensión (sobre base cotización)", 0.0, 0.2, 0.125, 0.005,
         help="Porcentaje del 40% de la tarifa destinado a pensión."
     )
     porcentaje_riesgos = st.slider(
