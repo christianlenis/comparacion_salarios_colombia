@@ -12,10 +12,9 @@ st.set_page_config(
 st.sidebar.subheader("Ajustes de Cálculo")
 with st.sidebar:
     st.write("Ajusta los porcentajes utilizados en los cálculos:")
-    #st.help("Estos porcentajes afectan el resultado final. Ajusta con cuidado.")
     porcentaje_prestaciones = st.slider(
         "Porcentaje Prestaciones Sociales", 0.0, 0.5, 0.35, 0.01,
-        help="Incluye prima, cesantías y vacaciones. Generalmente alrededor del 35%."
+        help="Prima, cesantías, vacaciones... ese combo que no ves en prestación de servicios."
     )
     porcentaje_salud = st.slider(
         "Porcentaje Salud (sobre base cotización)", 0.0, 0.2, 0.125, 0.005,
@@ -58,7 +57,7 @@ with tabs[0]:
     salario_base = st.number_input(
         "Introduce el salario base mensual (en COP):",
         min_value=0, step=100000, value=salario_base_example,
-        help="Este es el salario base mensual en un contrato a término indefinido."
+        help="Pon tu salario de contrato indefinido. Sin pena. Aquí no se recopila ningún dato."
     )
 
     if salario_base > 0:
@@ -84,12 +83,11 @@ with tabs[0]:
                 st.metric("Pensión", f"{pension:,.0f} COP")
                 st.metric("Riesgos", f"{riesgos:,.0f} COP")
 
-                st.write("Prestaciones sociales:")
+                st.write("Prestaciones sociales (que ya no tendrás por arte de magia):")
                 st.metric("Prestaciones Sociales", f"{prestaciones:,.0f} COP")
 
-        # On the right column, show a small bar chart for breakdown
         with col2:
-            st.markdown("#### Distribución de Costos")
+            st.markdown("#### ¿A dónde se va la plata?")
             df = pd.DataFrame({
                 'Concepto': ['Salud', 'Pensión', 'Riesgos', 'Prestaciones'],
                 'Valor': [salud, pension, riesgos, prestaciones]
@@ -99,7 +97,7 @@ with tabs[0]:
 with tabs[1]:
     # "De prestación de servicios a contrato indefinido"
     st.subheader("De Prestación de Servicios a Contrato Indefinido")
-    st.info("Calcula el salario base equivalente en un contrato indefinido a partir de una tarifa por prestación.")
+    st.info("Veamos cuánto sería tu salario base en un indefinido, no vaya a ser que extrañes la libertad. 😏")
 
     # Example Button
     if st.button("Cargar Ejemplo", key="ejemplo_prestacion"):
@@ -110,7 +108,7 @@ with tabs[1]:
     tarifa_prestacion = st.number_input(
         "Introduce la tarifa mensual por prestación de servicios (en COP):",
         min_value=0, step=100000, value=tarifa_example,
-        help="La tarifa mensual que facturarías por prestación de servicios."
+        help="Tu tarifa por prestación de servicios. Suéltala sin miedo."
     )
 
     if tarifa_prestacion > 0:
@@ -137,14 +135,12 @@ with tabs[1]:
                     f"- Factor de prestaciones sociales ({porcentaje_prestaciones * 100:.0f}%): {factor_prestaciones:.2f}")
 
                 st.markdown("""
-                **Interpretación:**  
-                La tarifa por prestación de servicios incluye el salario base, más los costos equivalentes a seguridad social y prestaciones 
-                sociales que tendrías en un contrato indefinido.  
+                **Interpretación sin anestesia:**  
+                La tarifa por prestación de servicios incluye tu 'salario base' más la seguridad social y las prestaciones que no tienes.  
 
-                Al dividir la tarifa por estos factores, obtienes el salario base equivalente.
+                Al dividir esa tarifa por los factores, ves lo que equivaldría a un salario indefinido. 
                 """)
 
-        # On the right column, a brief numeric summary
         with col2:
             st.markdown("#### Resumen Numérico")
             st.metric("Factor Total", f"{factor_total:.2f}")
@@ -179,4 +175,5 @@ st.write("""
 """)
 
 st.info(
-    "Conocer la normativa vigente es crucial para cumplir con las obligaciones legales en cualquier modalidad de contratación.")
+    "Conoce las reglas del juego para que no te metan gato por liebre."
+)
