@@ -43,3 +43,17 @@ Esta aplicación web te ayuda a comparar y convertir valores entre dos modalidad
 
 ## Nota
 Esta herramienta es una guía informativa. No sustituye asesoría legal o contable profesional.
+
+## Contribuciones
+¡Gracias por tu interés en contribuir a este proyecto! Aquí te mostramos cómo puedes participar:
+
+1. **Reportar Problemas**: Si encuentras algún error o problema, por favor repórtalo creando un Issue en el repositorio.
+2. **Contribuir con Código**: Siente la libertad de realizar un Fork del repositorio, desarrollar tus mejoras y enviar un Pull Request (PR).
+3. **Revisar PRs**: Si deseas ayudar, puedes revisar y dar tu opinión sobre los Pull Requests abiertos del proyecto.
+4. **Compartir el Proyecto**: ¡Invita a otros desarrolladores y usuarios a conocer y utilizar esta herramienta!
+
+### Lineamientos para Contribuciones
+- Sigue las **buenas prácticas de codificación**, incluyendo un código limpio y bien documentado.
+- Asegúrate de que los cambios estén cubiertos con **pruebas adecuadas** antes de enviar un PR.
+- Proporciona una **descripción clara y detallada** del propósito del Pull Request.
+- Verifica que los cambios no rompan otras partes del proyecto.
